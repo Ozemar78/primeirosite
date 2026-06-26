@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alimentação - Luxury Hotel</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <style>
+        :root {
+            --primary-color: #8b7355;
+            --secondary-color: #d4af37;
+            --dark-color: #2c2c2c;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .navbar {
+            background-color: var(--dark-color) !important;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--secondary-color) !important;
+        }
+        .page-header {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('imagens/2.webp');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0 50px 0;
+            margin-top: 60px;
+            text-align: center;
+        }
+        .page-header h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        .section-title {
+            color: var(--primary-color);
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 40px 0 20px 0;
+        }
+        .restaurant-card {
+            border: none;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+        .restaurant-card:hover {
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            transform: translateY(-5px);
+        }
+        .restaurant-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 30px;
+        }
+        .restaurant-title {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .restaurant-info {
+            padding: 30px;
+        }
+        .menu-item {
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .menu-item:last-child {
+            border-bottom: none;
+        }
+        .menu-item-title {
+            font-weight: bold;
+            color: var(--primary-color);
+            font-size: 1.1rem;
+        }
+        .menu-item-description {
+            font-size: 0.95rem;
+            color: #666;
+            margin: 5px 0;
+        }
+        .menu-item-price {
+            color: var(--secondary-color);
+            font-weight: bold;
+            font-size: 1rem;
+        }
+        .service-highlight {
+            background-color: #f9f9f9;
+            border-left: 4px solid var(--secondary-color);
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .highlight-icon {
+            color: var(--secondary-color);
+            font-size: 1.5rem;
+            margin-right: 10px;
+        }
+        .btn-reserve {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+        }
+        .btn-reserve:hover {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+            color: var(--dark-color);
+        }
+        .hours-badge {
+            background-color: var(--dark-color);
+            color: var(--secondary-color);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        .rating {
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+        .footer {
+            background-color: var(--dark-color);
+            color: #ccc;
+            padding: 40px 0;
+            margin-top: 60px;
+        }
+        .footer .footer-title {
+            color: var(--secondary-color);
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .tabs-nav {
+            border-bottom: 2px solid var(--primary-color);
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">🏨 Luxury Hotel</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasDarkNavbar" style="background-color: var(--dark-color);">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" style="color: var(--secondary-color);">Menu</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="index.html">Início</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="quartos.html">Quartos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="alimentacao.html">Alimentação</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="index.html#contato">Contato</a>
+                        </li>
+                    </ul>
+                    <button class="btn btn-outline-warning w-100 mt-3">Reservar Agora</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <h1>Nossa Gastronomia</h1>
+        <p class="fs-5">Experiências culinárias memoráveis em nossos restaurantes</p>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container py-5">
+        <!-- Restaurante 1: Restaurante Fino -->
+        <div class="restaurant-card">
+            <div class="restaurant-header">
+                <div class="row align-items-center">
+                    <div class="col-md-8">
+                        <div class="restaurant-title">🍽️ Le Petit Gourmet</div>
+                        <p class="mb-2">Gastronomia Francesa Premium</p>
+                        <div class="rating">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <span class="ms-2">(189 avaliações)</span>
+                        </div>
+                        <div class="hours-badge">⏰ 12h00 - 23h00</div>
+                    </div>
+                    <div class="col-md-4 text-end">
+                        <button class="btn btn-light">Fazer Reserva</button>
+                    </div>
+                </div>
+            </div>
+            <div class="restaurant-info">
+                <p class="text-muted mb-4">
+                    Experimente a autêntica culinária francesa em um ambiente sofisticado e acolhedor. 
+                    Nossos chefs trazem técnicas tradicionais francesas com ingredientes selecionados.
+                </p>
+
+                <div class="service-highlight">
+                    <span class="highlight-icon"><i class="bi bi-cup"></i></span>
+                    <strong>Destaque:</strong> Menu degustação com acompanhamento de vinhos importados
+                </div>
+
+                <h5 class="mt-4 mb-3">Pratos Especiais:</h5>
+                <div class="menu-item">
+                    <div class="menu-item-title">Coq au Vin</div>
+                    <div class="menu-item-description">Frango caçador cozido em vinho tinto de Borgonha com cogumelos e cebolas pérola</div>
+                    <div class="menu-item-price">R$ 98,00</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-title">Filet Mignon com Molho Béarnaise</div>
+                    <div class="menu-item-description">Corte premium acompanhado de batatas francesas e legumes da estação</div>
+                    <div class="menu-item-price">R$ 125,00</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-title">Linguado Meunière</div>
+                    <div class="menu-item-description">Peixe nobre envolvido em farinha fina e temperado com manteiga castanha</div>
+                    <div class="menu-item-price">R$ 105,00</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-title">Crème Brûlée</div>
+                    <div class="menu-item-description">Sobremesa clássica francesa com açúcar cristalizado e calda de baunilha</div>
+                    <div class="menu-item-price">R$ 32,00</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Restaurante 2: Churrascaria -->
+        <div class="restaurant-card">
+            <div class="restaurant-header">
+                <div class="row align-items-center">
+                    <div class="col-md-8">
+                        <div class="restaurant-title">🥩 Churrascaria Brasil</div>
+                        <p class="mb-2">Carnes Premium à Moda Brasileira</p>
+                        <div class="rating">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star"></i>
+                            <span class="ms-2">(276 avaliações)</span>
+                        </div>
+                        <div class="hours-badge">⏰ 11h30 - 23h30</div>
+                    </div>
+                    <div class="col-md-4 text-end">
+                        <button class="btn btn-light">Fazer Reserva</button>
+                    </div>
+                </div>
+            </div>
+            <div class="restaurant-info">
+                <p class="text-muted mb-4">
+                    Tradição brasileira com os melhores cortes de carne. Nossos garçons circulam constantemente 
+                    oferecendo as carnes mais suculentas acompanhadas de acessórios tradicionais.
+                </p>
+
+                <div class="service-highlight">
+                    <span class="highlight-icon"><i class="bi bi-fire"></i></span>
+                    <strong>Rodízio Completo:</strong> Todas as carnes selecionadas com buffet de acompanhamentos
+                </div>
+
+                <h5 class="mt-4 mb-3">Cortes Especiais:</h5>
+                <div class="menu-item">
+                    <div class="menu-item-title">Picanha Premium</div>
+                    <div class="menu-item-description">Corte macio e suculento assado na brasa, temperado com sal grosso</div>
+                    <div class="menu-item-price">R$ 120,00</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-title">Costela de Ouro</div>
+                    <div class="menu-item-description">Costela maturada por 30 dias com sabor intenso e maciez inigualável</div>
+                    <div class="menu-item-price">R$ 135,00</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-title">Moqueca de Peixe</div>
+                    <div class="menu-item-description">Peixe fresco na panela de barro com leite de coco, azeite de dendê e vegetais</div>
+                    <div class="menu-item-price">R$ 95,00</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-title">Brigadeiro Gourmet com Calda Quente</div>
+                    <div class="menu-item-description">Delícia brasileira feita com chocolate belga e calda de chocolate derretida</div>
+                    <div class="menu-item-price">R$ 28,00</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Restaurante 3: Cafe da Manha -->
+        <div class="restaurant-card">
+            <div class="restaurant-header">
+                <div class="row align-items-center">
+                    <div class="col-md-8">
+                        <div class="restaurant-title">☕ Café da Manhã Gourmet</div>
+                        <p class="mb-2">Café da Manhã Buffet Completo</p>
+                        <div class="rating">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <span class="ms-2">(342 avaliações)</span>
+                        </div>
+                        <div class="hours-badge">⏰ 06h30 - 11h00</div>
+                    </div>
+                    <div class="col-md-4 text-end">
+                        <button class="btn btn-light">Incluído na Hospedagem</button>
+                    </div>
+                </div>
+            </div>
+            <div class="restaurant-info">
+                <p class="text-muted mb-4">
+                    Comece seu dia com nossa oferta generosa de café da manhã buffet. 
+                    Oferecemos uma variedade de opções internacionais e brasileiras para satisfazer todos os paladares.
+                </p>
+
+                <div class="service-highlight">
+                    <span class="highlight-icon"><i class="bi bi-check-circle-fill"></i></span>
+                    <strong>Incluído Gratuitamente:</strong> Para todos os hóspedes do hotel
+                </div>
+
+                <h5 class="mt-4 mb-3">O que Oferecemos:</h5>
+                <div class="menu-item">
+                    <div class="menu-item-title">Frutas Tropicais Frescas</div>
+                    <div class="menu-item-description">Seleção diária de frutas: melancia, melão, morango, abacaxi, manga e mais</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-title">Pães e Bolos Artesanais</div>
+                    <div class="menu-item-description">Croissant, bolo de chocolate, bolo de cenoura, pão integral e de centeio</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-title">Proteínas & Laticínios</div>
+                    <div class="menu-item-description">Ovos (omelete, mexido, cozido), queijos variados, iogurte grego e natural</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-title">Bebidas Quentes</div>
+                    <div class="menu-item-description">Café italiano, cappuccino, chás especiais, chocolate quente e suco natural</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-title">Opções Vegetarianas & Fitness</div>
+                    <div class="menu-item-description">Granola, aveia, mel, castanhas, sementes e alimentos de baixa caloria</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Restaurante 4: Bar & Lounge -->
+        <div class="restaurant-card">
+            <div class="restaurant-header">
+                <div class="row align-items-center">
+                    <div class="col-md-8">
+                        <div class="restaurant-title">🍹 Bar & Lounge Sunset</div>
+                        <p class="mb-2">Coquetéis Artesanais & Bebidas Premium</p>
+                        <div class="rating">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <span class="ms-2">(401 avaliações)</span>
+                        </div>
+                        <div class="hours-badge">⏰ 17h00 - 02h00</div>
+                    </div>
+                    <div class="col-md-4 text-end">
+                        <button class="btn btn-light">Fazer Reserva</button>
+                    </div>
+                </div>
+            </div>
+            <div class="restaurant-info">
+                <p class="text-muted mb-4">
+                    Ambiente sofisticado com vista panorâmica e coquetéis autorais criados por nossos mixologistas premiados. 
+                    Perfeito para relaxar ou comemorar em estilo.
+                </p>
+
+                <div class="service-highlight">
+                    <span class="highlight-icon"><i class="bi bi-music-note-beamed"></i></span>
+                    <strong>Música ao Vivo:</strong> Quinta a domingo com artistas locais talentosos
+                </div>
+
+                <h5 class="mt-4 mb-3">Coquetéis Especiais:</h5>
+                <div class="menu-item">
+                    <div class="menu-item-title">Caipirinha Luxury</div>
+                    <div class="menu-item-description">Cachaça premium, limão fresco, açúcar demerara e gelo artesanal</div>
+                    <div class="menu-item-price">R$ 35,00</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-title">Mojito Tropical</div>
+                    <div class="menu-item-description">Rum branco, suco de maracujá, hortelã fresca, limão e água com gás</div>
+                    <div class="menu-item-price">R$ 38,00</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-title">Dry Martini de Autor</div>
+                    <div class="menu-item-description">Gim seco com vermute e azeitona importada, coquetel clássico reformulado</div>
+                    <div class="menu-item-price">R$ 42,00</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-title">Seleção de Vinhos Premium</div>
+                    <div class="menu-item-description">Vinhos importados da Europa e rótulos selecionados do Brasil</div>
+                    <div class="menu-item-price">A partir de R$ 65,00</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Informações Adicionais -->
+        <div class="row mt-5">
+            <div class="col-md-6 mb-4">
+                <div class="card h-100" style="border: none; box-shadow: 0 2px 15px rgba(0,0,0,0.1);">
+                    <div class="card-body">
+                        <h5 class="card-title" style="color: var(--primary-color);">
+                            <i class="bi bi-telephone me-2"></i>Serviço de Room Service
+                        </h5>
+                        <p class="card-text text-muted">
+                            Desfrute de refeições na privacidade do seu quarto. Disponível 24 horas com menu especial.
+                        </p>
+                        <small class="text-secondary">Ligue: Ramal 2500</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="card h-100" style="border: none; box-shadow: 0 2px 15px rgba(0,0,0,0.1);">
+                    <div class="card-body">
+                        <h5 class="card-title" style="color: var(--primary-color);">
+                            <i class="bi bi-calendar3 me-2"></i>Eventos & Banquetes
+                        </h5>
+                        <p class="card-text text-muted">
+                            Personalizamos menu e espaço para suas celebrações especiais e eventos corporativos.
+                        </p>
+                        <small class="text-secondary">Contato: eventos@luxuryhotel.com.br</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5 class="footer-title">Luxury Hotel</h5>
+                    <p>Sua experiência perfeita começa aqui. Estamos prontos para recebê-lo.</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5 class="footer-title">Links Rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-decoration-none text-light">Início</a></li>
+                        <li><a href="quartos.html" class="text-decoration-none text-light">Quartos</a></li>
+                        <li><a href="alimentacao.html" class="text-decoration-none text-light">Alimentação</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5 class="footer-title">Contato</h5>
+                    <p>
+                        📞 (11) 3000-0000<br>
+                        📧 reservas@luxuryhotel.com.br<br>
+                        📍 Av. Paulista, 1000 - São Paulo, SP
+                    </p>
+                </div>
+            </div>
+            <hr style="border-color: #555;">
+            <div class="text-center">
+                <p>&copy; 2024 Luxury Hotel. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous"></script>
+</body>
+</html>
