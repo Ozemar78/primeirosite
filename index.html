@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luxury Hotel - Sua Estadia Perfeita</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <title>Hotel Recanto dos Lagos - Sua Estadia Perfeita</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <style>
         :root {
             --primary-color: #8b7355;
@@ -15,6 +14,7 @@
         }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
         }
         .navbar {
             background-color: var(--dark-color) !important;
@@ -32,57 +32,168 @@
         .carousel-item img {
             height: 500px;
             object-fit: cover;
+            filter: brightness(0.8);
+        }
+        .carousel-caption {
+            background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.7) 100%);
+            bottom: 0;
+            padding: 60px 20px 20px;
+        }
+        .carousel-caption h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            margin-bottom: 10px;
+        }
+        .carousel-caption p {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
         }
         .section-title {
             color: var(--primary-color);
             font-weight: bold;
             text-transform: uppercase;
             letter-spacing: 2px;
-            margin: 40px 0 20px 0;
+            margin: 60px 0 30px 0;
+            font-size: 2.2rem;
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 15px;
+            display: inline-block;
+        }
+        .intro-section {
+            background: linear-gradient(135deg, rgba(139,115,85,0.1) 0%, rgba(212,175,55,0.05) 100%);
+            padding: 60px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .intro-text h2 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        .intro-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+        }
+        .intro-image img {
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
         }
         .room-card {
             transition: transform 0.3s, box-shadow 0.3s;
             border: none;
             box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
         }
         .room-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            transform: translateY(-10px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.2);
         }
         .room-card .card-img-top {
             height: 250px;
             object-fit: cover;
         }
+        .room-card .card-body {
+            padding: 25px;
+        }
+        .room-card .card-title {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .room-card .card-text {
+            line-height: 1.6;
+        }
         .service-icon {
-            font-size: 2.5rem;
+            font-size: 3rem;
             color: var(--secondary-color);
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+        }
+        .service-card {
+            text-align: center;
+            padding: 30px;
+            border-radius: 10px;
+            transition: all 0.3s;
+            background: #f9f9f9;
+        }
+        .service-card:hover {
+            background: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transform: translateY(-5px);
+        }
+        .service-card h5 {
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-bottom: 10px;
         }
         .btn-reserve {
             background-color: var(--primary-color);
             border-color: var(--primary-color);
             color: white;
+            font-weight: bold;
+            padding: 12px 30px;
+            transition: all 0.3s;
         }
         .btn-reserve:hover {
             background-color: var(--secondary-color);
             border-color: var(--secondary-color);
             color: var(--dark-color);
+            transform: scale(1.05);
+        }
+        .btn-reserve-lg {
+            font-size: 1.2rem;
+            padding: 15px 40px;
+        }
+        .price {
+            color: var(--secondary-color);
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+        .contact-section {
+            background: linear-gradient(135deg, rgba(139,115,85,0.1) 0%, rgba(212,175,55,0.05) 100%);
+            padding: 60px 0;
+            border-top: 1px solid #eee;
+        }
+        .form-control:focus {
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 0.2rem rgba(212, 175, 55, 0.25);
         }
         .footer {
             background-color: var(--dark-color);
             color: #ccc;
-            padding: 40px 0;
+            padding: 60px 0 20px 0;
             margin-top: 60px;
         }
-        .footer .footer-title {
+        .footer-title {
             color: var(--secondary-color);
             font-weight: bold;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
         }
-        .price {
+        .footer-link {
+            color: #ccc;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: block;
+            margin-bottom: 8px;
+        }
+        .footer-link:hover {
             color: var(--secondary-color);
-            font-size: 1.5rem;
-            font-weight: bold;
+            padding-left: 5px;
+        }
+        .footer-bottom {
+            border-top: 1px solid #444;
+            padding-top: 20px;
+            margin-top: 30px;
+            text-align: center;
+            color: #999;
+        }
+        .section-divider {
+            margin: 80px 0;
         }
     </style>
 </head>
@@ -90,7 +201,7 @@
 <body>
     <nav class="navbar navbar-dark fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.html">🏨 Luxury Hotel</a>
+            <a class="navbar-brand" href="index.html">🏨 Hotel Recanto dos Lagos</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -120,39 +231,226 @@
         </div>
     </nav>
 
-<div id="carouselExampleIndicators" class="carousel slide">
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-  </div>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="imagens/1.webp" class="d-block w-100" alt="...">
+    <!-- Hero Carousel -->
+    <div id="carouselExampleIndicators" class="carousel slide hero-section" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="imagens/1.webp" class="d-block w-100" alt="Suíte Premium">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1>Bem-Vindo</h1>
+                    <p>Conforto e Elegância à sua Espera</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="imagens/2.webp" class="d-block w-100" alt="Piscina">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1>Relaxe</h1>
+                    <p>Instalações Premium para seu Descanso</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="imagens/imagem 3.webp" class="d-block w-100" alt="Restaurante">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1>Saboreie</h1>
+                    <p>Gastronomia de Excelência</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
     </div>
-    <div class="carousel-item">
-      <img src="imagens/2.webp" class="d-block w-100" alt="...">
+
+    <!-- Introduction Section -->
+    <div class="intro-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 intro-text">
+                    <h2 class="section-title">Bem-vindo ao Hotel</h2>
+                    <p>
+                        Experimente o conforto e a elegância em nosso hotel de 5 estrelas. Com localização privilegiada no coração da cidade, equipe atenciosa e instalações premium, garantimos uma estadia inesquecível.
+                    </p>
+                    <p>
+                        Cada detalhe foi cuidadosamente pensado para proporcionar a melhor experiência possível aos nossos hóspedes. Venha desfrutar de luxo, comodidade e serviço excepcional.
+                    </p>
+                    <button class="btn btn-reserve btn-reserve-lg mt-4">Fazer uma Reserva</button>
+                </div>
+                <div class="col-md-6 intro-image">
+                    <img src="imagens/hotel imagem 4.webp" alt="Hotel" class="img-fluid">
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="carousel-item">
-      <img src="imagens/imagem 3.webp" class="d-block w-100" alt="...">
+
+    <!-- Quartos Section -->
+    <div class="container section-divider">
+        <h2 class="section-title text-center w-100">Nossos Quartos</h2>
+        <p class="text-center text-muted mb-5" style="font-size: 1.1rem;">Escolha a opção perfeita para sua estadia</p>
+        
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card room-card">
+                    <img src="imagens/1.webp" class="card-img-top" alt="Quarto Standard">
+                    <div class="card-body">
+                        <h5 class="card-title">🛏️ Quarto Standard</h5>
+                        <p class="card-text">Confortável e espaçoso, perfeito para uma estadia tranquila com todas as comodidades essenciais.</p>
+                        <p class="price">R$ 250/noite</p>
+                        <a href="quartos.html" class="btn btn-reserve w-100">Ver Detalhes</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card room-card">
+                    <img src="imagens/2.webp" class="card-img-top" alt="Quarto Deluxe">
+                    <div class="card-body">
+                        <h5 class="card-title">👑 Quarto Deluxe</h5>
+                        <p class="card-text">Luxuoso com vista para a cidade e comodidades premium, ideal para hóspedes mais exigentes.</p>
+                        <p class="price">R$ 450/noite</p>
+                        <a href="quartos.html" class="btn btn-reserve w-100">Ver Detalhes</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card room-card">
+                    <img src="imagens/imagem 3.webp" class="card-img-top" alt="Suite Executiva">
+                    <div class="card-body">
+                        <h5 class="card-title">✨ Suite Executiva</h5>
+                        <p class="card-text">A experiência máxima com sala de estar privada, Jacuzzi e serviços exclusivos VIP.</p>
+                        <p class="price">R$ 800/noite</p>
+                        <a href="quartos.html" class="btn btn-reserve w-100">Ver Detalhes</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
-<div class="card" style="width: 18rem;">
-  <img src="imagens/hotel imagem 4.webp" class="card-img-top" alt="...">
-  <div class="card-body">
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-  </div>
-</div>
+
+    <!-- Serviços Section -->
+    <div class="container section-divider">
+        <h2 class="section-title text-center w-100">Nossos Serviços</h2>
+        <p class="text-center text-muted mb-5" style="font-size: 1.1rem;">Experiências memoráveis em cada momento</p>
+        
+        <div class="row g-4">
+            <div class="col-md-3">
+                <div class="service-card">
+                    <i class="bi bi-cup-straw service-icon"></i>
+                    <h5>Restaurante 24h</h5>
+                    <p class="text-muted">Gastronomia internacional e pratos da culinária local com chef especializado.</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="service-card">
+                    <i class="bi bi-droplet service-icon"></i>
+                    <h5>Piscina Premium</h5>
+                    <p class="text-muted">Piscina aquecida com bar à beira-piscina, espreguiçadeiras e serviço impecável.</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="service-card">
+                    <i class="bi bi-dumbbell service-icon"></i>
+                    <h5>Centro de Fitness</h5>
+                    <p class="text-muted">Equipamentos modernos, personal trainer disponível e aulas de yoga matinal.</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="service-card">
+                    <i class="bi bi-wifi service-icon"></i>
+                    <h5>WiFi Premium</h5>
+                    <p class="text-muted">Conexão fibra óptica ultra-rápida em todas as áreas do hotel.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contato Section -->
+    <div class="contact-section" id="contato">
+        <div class="container">
+            <h2 class="section-title text-center w-100">Entre em Contato</h2>
+            <p class="text-center text-muted mb-5" style="font-size: 1.1rem;">Tire suas dúvidas ou faça uma reserva agora</p>
+            
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="nome" class="form-label">Nome Completo</label>
+                                <input type="text" class="form-control" id="nome" placeholder="Seu nome" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" placeholder="seu@email.com" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="telefone" class="form-label">Telefone</label>
+                                <input type="tel" class="form-control" id="telefone" placeholder="(11) 99999-9999">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="assunto" class="form-label">Assunto</label>
+                                <input type="text" class="form-control" id="assunto" placeholder="Sobre sua mensagem" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="mensagem" class="form-label">Mensagem</label>
+                            <textarea class="form-control" id="mensagem" rows="5" placeholder="Escreva sua mensagem aqui..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-reserve btn-reserve-lg w-100">Enviar Mensagem</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5 class="footer-title">🏨 Hotel Recanto dos Lagos</h5>
+                    <p>Sua experiência perfeita começa aqui. Estamos prontos para recebê-lo com todo o conforto e luxo que você merece.</p>
+                    <div style="margin-top: 15px;">
+                        <i class="bi bi-star-fill" style="color: var(--secondary-color);"></i>
+                        <i class="bi bi-star-fill" style="color: var(--secondary-color);"></i>
+                        <i class="bi bi-star-fill" style="color: var(--secondary-color);"></i>
+                        <i class="bi bi-star-fill" style="color: var(--secondary-color);"></i>
+                        <i class="bi bi-star-fill" style="color: var(--secondary-color);"></i>
+                        <span style="margin-left: 10px; color: var(--secondary-color);">5.0</span>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5 class="footer-title">Links Rápidos</h5>
+                    <a href="index.html" class="footer-link">🏠 Início</a>
+                    <a href="quartos.html" class="footer-link">🛏️ Quartos</a>
+                    <a href="alimentacao.html" class="footer-link">🍽️ Alimentação</a>
+                    <a href="#contato" class="footer-link">📞 Contato</a>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5 class="footer-title">Informações</h5>
+                    <p style="margin-bottom: 10px;">
+                        <i class="bi bi-telephone"></i> (11) 3000-0000
+                    </p>
+                    <p style="margin-bottom: 10px;">
+                        <i class="bi bi-envelope"></i> reservas@recantodoslargos.com.br
+                    </p>
+                    <p>
+                        <i class="bi bi-geo-alt"></i> Av. Paulista, 1000 - São Paulo, SP
+                    </p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Hotel Recanto dos Lagos. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous"></script>
 </html>
